@@ -2,9 +2,11 @@ package com.example.kate.nh_proejct;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
@@ -27,15 +29,21 @@ public class HomeActivity extends AppCompatActivity {
         //storage
         mStorageRef = FirebaseStorage.getInstance().getReference();
        StorageReference pathReference = mStorageRef.child("funding/notes.png");
-     /*   ImageView img=findViewById(R.id.imgView);
+     /*  ImageView img=findViewById(R.id.imgView);
 
         Glide.with(this)
                 .load(pathReference).into(img);*/
-     GridView gridView=findViewById(R.id.gridView);
 
 
 
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toobar_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
     //사용자가 현재 로그인 되있는지 확
     /*  @Override
