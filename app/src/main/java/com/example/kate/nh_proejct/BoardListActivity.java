@@ -100,12 +100,12 @@ public class BoardListActivity extends AppCompatActivity {
 
 
     }
-    class BAdapter extends RecyclerView.Adapter<BAdapter.ViewHolder> {
+     class BAdapter extends RecyclerView.Adapter<BAdapter.ViewHolder> {
         Handler handler = new Handler();
 
         private ArrayList<Board> list;
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        public  class ViewHolder extends RecyclerView.ViewHolder {
 
             TextView textView;
             ImageView imgView;

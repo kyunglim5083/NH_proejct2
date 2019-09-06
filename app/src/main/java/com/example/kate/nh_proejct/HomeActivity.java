@@ -53,7 +53,8 @@ public class HomeActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(),FundingListActivity.class);
+                startActivityForResult(intent,1);//액티비티 띄우기
             }
         });
 

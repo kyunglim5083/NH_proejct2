@@ -117,6 +117,21 @@
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <include
+                    android:id="@+id/top"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/activity_comment_list"
+                    />
+
+            </RelativeLayout>
+
+
         </LinearLayout>
 
 
