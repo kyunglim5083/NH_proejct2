@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,11 +27,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -46,11 +50,13 @@ public class BoardListActivity extends AppCompatActivity {
     private StorageReference pathReference;
     private StorageReference mStorageRef=FirebaseStorage.getInstance().getReference();
 
+
     private LinearLayoutManager mLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boardlist);
+
 
         mDatabase = FirebaseFirestore.getInstance();
 
@@ -95,6 +101,8 @@ public class BoardListActivity extends AppCompatActivity {
 
     }
     class BAdapter extends RecyclerView.Adapter<BAdapter.ViewHolder> {
+        Handler handler = new Handler();
+
         private ArrayList<Board> list;
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -139,7 +147,10 @@ public class BoardListActivity extends AppCompatActivity {
                 viewHolder.imgView.setImageResource(R.drawable.emptyh);
             }
 
-            String img_path=items.get(position).image;
+            String img_path="@drawable/"+items.get(position).image;
+            int resId=getResources().getIdentifier(img_path,"",getApplication().getPackageName());
+            viewHolder.mainImg.setImageResource(resId);
+
             //개별 게시물 화면으로 이동
             viewHolder.mainImg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -149,12 +160,11 @@ public class BoardListActivity extends AppCompatActivity {
                 }
             });
 
-            //##########여기 고쳐야함
-
-            //viewHolder.mainImg.setImageDrawable(drawableFromUrl(img_path));
 
 
-            //
+
+
+
 
 
 
@@ -167,17 +177,13 @@ public class BoardListActivity extends AppCompatActivity {
             return list.size();
         }
 
-        private Drawable drawableFromUrl(String url) {
+        /*private Drawable drawableFromUrl(String url) {
             Bitmap x=null;
 
             HttpURLConnection conn =
                     null;
             try {
                 conn = (HttpURLConnection) new URL(url).openConnection();
-                conn.setRequestMethod("GET");
-                conn.setReadTimeout(10000); // millis
-                conn.setConnectTimeout(15000); // millis
-                conn.setDoOutput(true);
                 conn.connect();
                 InputStream input = conn.getInputStream();
                 x = BitmapFactory.decodeStream(input);
@@ -188,8 +194,7 @@ public class BoardListActivity extends AppCompatActivity {
 
             return new BitmapDrawable(getResources(), x);
         }
-
-
+*/
 
 
 

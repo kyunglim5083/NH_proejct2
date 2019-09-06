@@ -36,7 +36,7 @@
                 android:gravity="center_vertical|center"
                 android:textSize="30sp"
                 android:fontFamily="@font/font1"
-                android:text="두부채소볶음"
+                android:text="고소한 두부채소볶음"
                 />
 
 
@@ -104,7 +104,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/Button4"
+                    android:id="@+id/btn4"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:layout_margin="10dp"

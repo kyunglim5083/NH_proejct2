@@ -6,9 +6,11 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:id="@+id/mainImg"
-        android:src="@drawable/foodimg" />
+        android:src="@drawable/foodimg"
+        android:padding="10dp"
+        android:scaleType="fitXY"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -17,10 +19,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/font1"
         android:text="아주 맛있는 너무 맜있는"
         android:textSize="20dp"
         android:id="@+id/title"
         android:layout_weight="1"
+
          />
 
     <ImageView
@@ -29,6 +33,7 @@
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:layout_height="40dp"
+        android:padding="2dp"
         android:src="@drawable/fullh"/>
 
 </LinearLayout>
