@@ -1,5 +1,8 @@
 package com.example.kate.nh_proejct;
 
+import com.bumptech.glide.load.model.stream.UrlLoader;
+
+import java.net.URL;
 import java.util.Date;
 
 public class Board {
