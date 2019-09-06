@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     // 비밀번호 유효성 검사
     private boolean isValidPasswd() {
         if (password.isEmpty()) {
-            // 비밀번호 공백
+            // 비밀번호 공백c
             return false;
         } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
             // 비밀번호 형식 불일치
