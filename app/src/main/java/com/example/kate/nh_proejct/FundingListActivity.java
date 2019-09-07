@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -58,7 +59,8 @@ public class FundingListActivity extends AppCompatActivity {
                         Map map = document.getData();
                         Log.i("##ggggg",document.getData()+"");
                         Funding funding = new Funding(map.get("title").toString(), map.get("image").toString(),"설명"
-                                ,Integer.parseInt(map.get("situation").toString()), Integer.parseInt(map.get("goal").toString()),(Date) map.get("date"));
+                                ,Integer.parseInt(map.get("situation").toString()), Integer.parseInt(map.get("goal").toString()),(Date) map.get("date"),
+                                map.get("progress").toString());
 
                         items.add(funding);
 
@@ -87,12 +89,15 @@ public class FundingListActivity extends AppCompatActivity {
 
             TextView textView;
             ImageView mainImg;
+            ImageView progress;
 
 
             public ViewHolder(View view) {
                 super(view);
                 textView = (TextView) view.findViewById(R.id.title);
                 mainImg = (ImageView) view.findViewById(R.id.mainImg);
+                progress=(ImageView)view.findViewById(R.id.progress);
+
 
 
             }
@@ -114,7 +119,7 @@ public class FundingListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(FundingListActivity.FAdapter.ViewHolder viewHolder, int position) {
-            Log.i("fundinglist", "#boardlist:" + list.get(position).image);
+            Log.i("fundinglist", "#boardlist:" + list.get(position).progress);
 
             viewHolder.textView.setText(list.get(position).title);
 
@@ -130,11 +135,9 @@ public class FundingListActivity extends AppCompatActivity {
                     startActivityForResult(intent,0);//액티비티 띄우기
                 }
             });
-
-
-
-
-
+            String pro_path="@drawable/"+list.get(position).progress;
+            resId=getResources().getIdentifier(pro_path,"",getApplication().getPackageName());
+            viewHolder.progress.setImageResource(resId);
 
 
 
@@ -148,6 +151,13 @@ public class FundingListActivity extends AppCompatActivity {
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toobar_menu, menu);
+        return true;
+
+    }
+
 
 
 

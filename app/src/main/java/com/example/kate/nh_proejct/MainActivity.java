@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
 
         // 파이어베이스 인증 객체 선언
         firebaseAuth = FirebaseAuth.getInstance();
@@ -165,4 +168,11 @@ public class MainActivity extends AppCompatActivity {
             mProgressDialog.dismiss();
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toobar_menu, menu);
+        return true;
+
+    }
+
 }

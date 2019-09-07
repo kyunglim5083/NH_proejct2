@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:adjustViewBounds="true"
+            android:padding="3dp"
             android:scaleType="fitXY"
             android:src="@drawable/fullh" />
 
@@ -39,36 +40,15 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
         android:orientation="vertical">
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/progress"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
-
-            <ProgressBar
-                android:id="@+id/progress"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:progressDrawable="@drawable/progressbar_1" />
-
-            <EditText
-                android:id="@+id/edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:inputType="number"
-                android:gravity="center_vertical|center"
-                android:fontFamily="@font/font1"
-                android:text="0" />
-
-        </LinearLayout>
-
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/p20"
+            android:padding="5dp"/>
     </LinearLayout>
 </LinearLayout>
